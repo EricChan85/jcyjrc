@@ -1,0 +1,10 @@
+/target
+.DS_Store
+MANIFEST.MF
+*.classpath
+*.project
+.settings/
+*.class
+*.DS_Store
+*.iml
+.idea

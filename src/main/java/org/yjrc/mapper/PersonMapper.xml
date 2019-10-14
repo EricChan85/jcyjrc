@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.yjrc.dao.PersonDao">
+
+	<resultMap id = "result" type = "org.yjrc.domain.Person">
+	   <result property = "id" column = "ID"/>
+	   <result property = "name" column = "NAME"/>
+	   <result property = "birthday" column = "BIRTHDAY"/>
+	</resultMap>
+
+	
+	<select id="getPersonById" parameterType="int" resultMap="result">
+		SELECT * FROM PERSON WHERE ID = #{id};
+	</select>
+	
+	<insert id = "insert" parameterType = "org.yjrc.domain.Person">
+	   INSERT INTO person (Id, Name, Birthday) 
+	   VALUES (#{id}, #{name}, #{birthday});    
+	</insert>	
+	
+	<select id="getAllPerson" resultMap="result">
+		SELECT * FROM person;
+	</select>
+</mapper> 
