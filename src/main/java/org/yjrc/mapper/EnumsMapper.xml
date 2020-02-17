@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.yjrc.dao.EnumsDao">
+	<resultMap id="result" type="org.yjrc.domain.Enums">
+		<result property="enumValue" column="enum_value"></result>
+		<result property="enumName" column="enum_name"></result>
+	</resultMap>
+	
+	<select id="getEnumsByType"  parameterType="String" resultMap="result">
+		SELECT enum_value, enum_name FROM enums where enum_type= #{enum_type}
+		ORDER BY enum_value;
+	</select>
+	
+	<select id="getEnumsNameByType"  parameterType="String" resultType="java.lang.String">
+		SELECT enum_name FROM enums where enum_type= #{enum_type}
+		ORDER BY enum_value;
+	</select>
+</mapper>

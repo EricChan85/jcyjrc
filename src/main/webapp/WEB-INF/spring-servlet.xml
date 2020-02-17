@@ -9,25 +9,26 @@
         http://www.springframework.org/schema/context  
         http://www.springframework.org/schema/context/spring-context-4.3.xsd  
         http://www.springframework.org/schema/mvc  
-        http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd">  
-  
+        http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd">  	
+	
     <!-- Provide support for component scanning -->  
     <!-- <context:component-scan base-package="org.yjrc.service">
     	<context:include-filter type="annotation" expression="org.springframework.stereotype.Service" />
-    </context:component-scan> 
-    <context:component-scan base-package="org.yjrc.controllers">
+    </context:component-scan>  -->
+    <!-- <context:component-scan base-package="org.yjrc.controllers">
 		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Service" />
 	</context:component-scan> -->
   
-  	<context:component-scan base-package="org.yjrc.*" />
-    <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" />
-    <bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping" />
+  	<!-- <context:component-scan base-package="org.yjrc.*" /> -->
+    <!-- <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" />
+    <bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping" /> -->
     <!--Provide support for conversion, formatting and validation -->  
     <mvc:annotation-driven/>  
 	<!-- Define Spring MVC view resolver -->  
-	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver"> 
+	<!-- <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver"> 
 		<property name="viewClass" value="org.springframework.web.servlet.view.JstlView" /> 
         <property name="prefix" value="/WEB-INF/jsp/"></property>  
         <property name="suffix" value=".jsp"></property>          
-     </bean>  
+     </bean>   -->
+     <!-- <mvc:resources mapping="/static/**" location="/static/" /> -->
 </beans>  

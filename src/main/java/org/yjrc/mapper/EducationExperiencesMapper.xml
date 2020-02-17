@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.yjrc.dao.EducationExperiencesDao">
+	
+	<resultMap id="result" type="org.yjrc.domain.EducationExperiences">
+		<result property = "id" column = "ID"/>
+		<result property = "personId" column = "person_id" />
+		<result property = "startDate" column = "start_date" />
+		<result property = "endDate" column = "end_date" />
+	    <result property = "details" column = "details" />
+	</resultMap>
+	
+	<select id="getEducationExperiencesByPersonId" parameterType="int" resultMap="result">
+		SELECT * FROM education_experiences WHERE PERSON_ID = #{id};
+	</select>	
+	
+	<delete id="deleteEducationExperiencesByPersonId" parameterType="int">
+		DELETE FROM education_experiences WHERE PERSON_ID = #{id};
+	</delete>
+	
+	<insert id="insertEducationExperiences" parameterType="org.yjrc.domain.EducationExperiences">
+		INSERT INTO education_experiences(person_id, start_date, end_date, details) 
+		VALUES (#{personId}, #{startDate}, #{endDate}, #{details});
+	</insert>
+</mapper>

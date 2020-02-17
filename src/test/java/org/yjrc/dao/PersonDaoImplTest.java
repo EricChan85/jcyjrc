@@ -30,12 +30,26 @@ public class PersonDaoImplTest {
 		Person person = personDao.getPersonById(1);
 		Assert.assertNotNull(person);
 		System.out.println(person.getName());
-	}
+	}	
 	
 	@Test 
 	public void testGetAllPerson() {
 		List<Person> list = personDao.getAllPerson();
 		Assert.assertFalse(list.isEmpty());
 	}
-
+	
+	@Test
+	public void testSavePerson() {
+		int id = 2;
+		String name = "李雷1";
+		Person person = new Person();
+		person.setId(id);
+		person.setName("李雷1");
+		person.setGender('M');
+		person.setDateOfBirth("1990.01.01");
+		/*person.setBirthPlace(birthPlace);*/
+		personDao.savePerson(person);
+		person = personDao.getPersonById(id);
+		Assert.assertTrue(name.equals(person.getName()));
+	}
 }

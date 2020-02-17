@@ -17,6 +17,8 @@
 		http://www.springframework.org/schema/context/spring-context-4.3.xsd ">
 	
 	<bean id="personService" class="org.yjrc.service.PersonServiceImpl"></bean>
-		
+	<bean id="userDetailsService" class="org.yjrc.service.MyUserDetailsService"></bean>
+	<bean id="enumsService" class="org.yjrc.service.EnumsServiceImpl"></bean>
+	<bean id="educationExperiencesService" class="org.yjrc.service.EducationExperiencesServiceImpl"></bean>
 		
 </beans>

@@ -8,17 +8,43 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<resultMap id = "result" type = "org.yjrc.domain.Person">
 	   <result property = "id" column = "ID"/>
 	   <result property = "name" column = "NAME"/>
-	   <result property = "birthday" column = "BIRTHDAY"/>
+	   <result property = "userName" column = "USERNAME"/>
+	   <result property = "gender" column = "gender"/>
+	   <result property = "dateOfBirth" column = "date_of_birth" />
+	   <result property = "nationality" column = "nationality" />
+	   <result property = "nativePlace" column = "native_place" />
+	   <result property = "birthPlace" column = "birth_place" />
+	   <result property = "politicalStatus" column = "political_status"/>
+	   <result property = "dateOfJoiningTheParty" column = "date_of_joining_the_party"/>
+	   <result property = "education" column = "education" />
+	   <result property = "healthCondition" column = "health_condition" />
+	   <result property = "dateOfStartingToWork" column = "date_of_starting_to_work"/>
+	   <result property = "dateOfEntering" column = "date_of_entering" />
+	   <result property = "numberOfIdCard" column = "number_of_id_card"/>
+	   <result property = "phone" column = "PHONE"/>	
+	   <result property = "institution" column = "institution"/>
+	   <result property = "position" column = "position"/>   
+	   <result property = "professionalTechnicalPosition" column = "professional_technical_position" />
+	   <result property = "address" column = "address"/>
 	</resultMap>
-
 	
 	<select id="getPersonById" parameterType="int" resultMap="result">
 		SELECT * FROM PERSON WHERE ID = #{id};
-	</select>
+	</select>	
 	
-	<insert id = "insert" parameterType = "org.yjrc.domain.Person">
-	   INSERT INTO person (Id, Name, Birthday) 
-	   VALUES (#{id}, #{name}, #{birthday});    
+	<insert id = "savePerson" parameterType = "org.yjrc.domain.Person">
+	   UPDATE person SET name = #{name}, gender = #{gender}, date_of_birth = #{dateOfBirth} , 
+	   					nationality = #{nationality}, native_place = #{nativePlace} ,
+	   					birth_place = #{birthPlace}, political_status = #{politicalStatus} , 
+	   					date_of_joining_the_party = #{dateOfJoiningTheParty} ,
+	   					education = #{education}, health_condition = #{healthCondition} ,
+	   					date_of_starting_to_work = #{dateOfStartingToWork} ,
+	   					date_of_entering = #{dateOfEntering},
+	   					number_of_id_card = #{numberOfIdCard} , phone = #{phone} ,
+	   					institution = #{institution} , position = #{position} ,
+	   					professional_technical_position = #{professionalTechnicalPosition} ,
+	   					address = #{address} 
+	   WHERE ID = #{id};	      
 	</insert>	
 	
 	<select id="getAllPerson" resultMap="result">
