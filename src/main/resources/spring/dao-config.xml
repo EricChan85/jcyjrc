@@ -22,4 +22,13 @@
 		<property name="mapperInterface" value="org.yjrc.dao.EducationExperiencesDao"></property>
 		<property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
 	</bean>
+	
+	<bean id="workExperienceDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="org.yjrc.dao.WorkExperienceDao"></property>
+		<property name="sqlSessionFactory" ref="sqlSessionFactory"></property>		
+	</bean>
+	
+	<!-- <bean id="workExperienceDao" class=""org.yjrc.dao.WorkExperienceDao"">
+		<property name="sqlSession" ref="sqlSession"></property>
+	</bean> -->
 </beans>

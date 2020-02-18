@@ -1,14 +1,15 @@
-package org.yjrc.models;
+package org.yjrc.domain;
 
 /**
- * 教育经历model
+ * 工作经历
  * 
  * @author cyh
  *
  * 
- * @date 2020年2月17日
+ * @date 2020年2月18日
  */
-public class EducationExperiencesModel {
+public class WorkExperience {
+
 	/*
 	 * 编号
 	 */
@@ -73,4 +74,5 @@ public class EducationExperiencesModel {
 	public void setDetails(String details) {
 		this.details = details;
 	}
+	
 }

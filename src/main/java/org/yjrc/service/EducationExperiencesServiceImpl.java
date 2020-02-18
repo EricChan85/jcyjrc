@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.yjrc.dao.EducationExperiencesDao;
 import org.yjrc.domain.EducationExperiences;
-import org.yjrc.models.EducationExperiencesModel;
 
 public class EducationExperiencesServiceImpl implements  EducationExperiencesService{
 

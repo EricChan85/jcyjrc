@@ -30,9 +30,9 @@
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
     	<property name="dataSource" ref="dataSource" />
     	<property name="mapperLocations" value="classpath*:org/yjrc/mapper/**/*.xml" />
-    	<property name="transactionFactory">
+    	<!-- <property name="transactionFactory">
 			<bean class="org.apache.ibatis.transaction.managed.ManagedTransactionFactory" />
-		</property>  
+		</property>   -->
 	</bean>
 	
 	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
@@ -40,9 +40,14 @@
 	  <constructor-arg index="1" value="BATCH" />
 	</bean>
 	
-	<!-- <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-	  <constructor-arg ref="dataSource" />
-	</bean> -->
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+	  <!-- <constructor-arg ref="dataSource" /> -->
+	  <property name="dataSource" ref="dataSource" />
+	</bean>
+	
+	<tx:annotation-driven transaction-manager="transactionManager"/>
+	
+	<!-- <mvc:annotation-driven/> -->
 	
 	<import resource="spring/dao-config.xml"></import>
 	<import resource="spring/service-config.xml"></import>

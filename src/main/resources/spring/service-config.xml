@@ -20,5 +20,5 @@
 	<bean id="userDetailsService" class="org.yjrc.service.MyUserDetailsService"></bean>
 	<bean id="enumsService" class="org.yjrc.service.EnumsServiceImpl"></bean>
 	<bean id="educationExperiencesService" class="org.yjrc.service.EducationExperiencesServiceImpl"></bean>
-		
+	<bean id="workExperienceService" class="org.yjrc.service.WorkExperienceServiceImpl"></bean>
 </beans>

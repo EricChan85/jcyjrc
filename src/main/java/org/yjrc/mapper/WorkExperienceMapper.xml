@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.yjrc.dao.WorkExperienceDao">
+	
+	<resultMap id="result" type="org.yjrc.domain.WorkExperience">
+		<result property = "id" column = "ID"/>
+		<result property = "personId" column = "person_id" />
+		<result property = "startDate" column = "start_date" />
+		<result property = "endDate" column = "end_date" />
+	    <result property = "details" column = "details" />
+	</resultMap>
+	
+	<select id="getWorkExperiencesByPersonId" parameterType="int" resultMap="result">
+		SELECT * FROM work_experience WHERE PERSON_ID = #{id};
+	</select>	
+	
+	<delete id="deleteWorkExperiencesByPersonId" parameterType="int">
+		DELETE FROM work_experience WHERE PERSON_ID = #{id};
+	</delete>
+	
+	<insert id="insertWorkExperience" parameterType="org.yjrc.domain.WorkExperience">
+		INSERT INTO work_experience(person_id, start_date, end_date, details) 
+		VALUES (#{personId}, #{startDate}, #{endDate}, #{details});
+	</insert>
+
+</mapper>

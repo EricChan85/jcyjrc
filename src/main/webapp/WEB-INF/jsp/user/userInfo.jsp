@@ -20,7 +20,7 @@
 		          <a class="nav-link" href="educationExperience">教育经历</a>
 		        </li>
 		        <li class="nav-item">
-		          <a class="nav-link" href="#">工作经历</a>
+		          <a class="nav-link" href="workExperience">工作经历</a>
 		        </li>
 		        <li class="nav-item">
 		          <a class="nav-link" href="#">获奖情况</a>

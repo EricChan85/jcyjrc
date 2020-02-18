@@ -3,7 +3,6 @@ package org.yjrc.service;
 import java.util.List;
 
 import org.yjrc.domain.EducationExperiences;
-import org.yjrc.models.EducationExperiencesModel;
 
 public interface EducationExperiencesService {
 

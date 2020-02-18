@@ -9,7 +9,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
       <typeAlias alias = "Member" type = "mybatis.Member"/>
    </typeAliases> --> 
 		
-   <environments default = "dev_environment">
+   <!-- <environments default = "dev_environment">
       <environment id = "dev_environment">
          <transactionManager type = "JDBC"/>  
 			
@@ -21,7 +21,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
             </dataSource>        
 				
       </environment>
-   </environments>
+   </environments> -->
 	
    <mappers>
       <mapper resource = "org/yjrc/mapper/PersonMapper.xml"/>
