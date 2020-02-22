@@ -1,6 +1,5 @@
 package org.yjrc.utils;
 
-import static org.junit.Assert.*;
 
 import org.junit.Test;
 import org.springframework.util.Assert;

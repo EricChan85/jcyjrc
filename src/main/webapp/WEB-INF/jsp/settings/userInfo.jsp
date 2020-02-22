@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>  
-<%@ include file="header.jsp" %>
+<%@ include file="../layout/user/header.jsp" %>
 <style>
     .user-grid {
         width:50%;        
@@ -26,7 +26,7 @@
 		          <a class="nav-link" href="#">获奖情况</a>
 		        </li>
 		        <li class="nav-item">
-		          <a class="nav-link" href="#">其他设置</a>
+		          <a class="nav-link" href="changePassword">修改密码</a>
 		        </li>
 		      </ul>
 		</div>

@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>  
-<%@ include file="header.jsp" %>
+<%@ include file="../layout/user/header.jsp" %>
 
 
 <div class="container" style="margin-top: 20px;">
@@ -13,16 +13,16 @@
 		          <a class="nav-link" href="userInfo">基本信息</a>
 		        </li>
 		        <li class="nav-item">		          
-		          <a class="nav-link active" href="educationExperience">教育经历</a>
+		          <a class="nav-link" href="educationExperience">教育经历</a>
 		        </li>
 		        <li class="nav-item">
-		          <a class="nav-link" href="workExperience">工作经历</a>
+		          <a class="nav-link active" href="workExperience">工作经历</a>
 		        </li>
 		        <li class="nav-item">
 		          <a class="nav-link" href="#">获奖情况</a>
 		        </li>
 		        <li class="nav-item">
-		          <a class="nav-link" href="#">其他设置</a>
+		          <a class="nav-link" href="changePassword">修改密码</a>
 		        </li>
 		      </ul>
 		</div>
@@ -39,7 +39,7 @@
 			            <tr>
 			                <th>开始日期</th>
 			                <th>结束日期</th>
-			                <th>教育经历</th>
+			                <th>工作经历</th>
 			                <th>操作</th>
 			            </tr>			            
 			        </thead>
@@ -65,7 +65,7 @@
      <div class="modal-dialog modal-lg">
          <div class="modal-content">
              <div class="modal-header">
-                 <h5 class="modal-title">请填入教育经历，格式：20XX.XX-20XX.XX    XX学校  学习  。如果还在学校，请选择9999年</h5>	                   
+                 <h5 class="modal-title">请填入工作经历，格式：20XX.XX-20XX.XX    XX单位  工作  。如果还在单位，请选择9999年</h5>	                   
              </div>
              <div class="modal-body">
                  
@@ -95,7 +95,7 @@
      </div>
  </div>	
 
-<script src="<c:url value="/static/js/page/user/educationExperiences.js?v=01" />"></script>
+<script src="<c:url value="/static/js/page/user/workExperience.js?v=01" />"></script>
 
 </body>
 </html>

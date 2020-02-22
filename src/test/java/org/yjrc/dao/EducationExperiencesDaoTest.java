@@ -1,6 +1,5 @@
 package org.yjrc.dao;
 
-import static org.junit.Assert.*;
 
 import java.util.List;
 
@@ -27,7 +26,7 @@ public class EducationExperiencesDaoTest {
 		ee.setEndDate("2020.01.01");
 		ee.setDetails("在北京大学学习");
 		educationExperiencesDao.insertEducationExperiences(ee);
-		Assert.isTrue(1 == 1);
+		/*Assert.isTrue(1 == 1);*/
 	}
 	
 	@Test

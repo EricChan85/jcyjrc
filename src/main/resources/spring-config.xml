@@ -52,4 +52,5 @@
 	<import resource="spring/dao-config.xml"></import>
 	<import resource="spring/service-config.xml"></import>
 	<import resource="spring/my-config.xml"></import>
+	<import resource="spring/validator-config.xml"/>
 </beans>

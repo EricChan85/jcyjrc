@@ -1,10 +1,8 @@
 package org.yjrc.config;
 
-import java.util.EnumSet;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
-import javax.servlet.SessionTrackingMode;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 

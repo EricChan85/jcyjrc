@@ -1,3 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:aop="http://www.springframework.org/schema/aop"
@@ -15,12 +17,7 @@
 		http://www.springframework.org/schema/jdbc/spring-jdbc-4.3.xsd
 		http://www.springframework.org/schema/context 
 		http://www.springframework.org/schema/context/spring-context-4.3.xsd ">
-	
-	<bean id="personService" class="org.yjrc.service.PersonServiceImpl"></bean>
-	<bean id="userDetailsService" class="org.yjrc.service.MyUserDetailsService"></bean>
-	<bean id="enumsService" class="org.yjrc.service.EnumsServiceImpl"></bean>
-	<bean id="educationExperiencesService" class="org.yjrc.service.EducationExperiencesServiceImpl"></bean>
-	<bean id="workExperienceService" class="org.yjrc.service.WorkExperienceServiceImpl"></bean>
-	<bean id="userService" class="org.yjrc.service.UserServiceImpl"></bean>
-	<bean id="repairService" class="org.yjrc.service.RepairServiceImpl"></bean>
+		
+		
+	<bean id="passwordModelValidator" class="org.yjrc.models.PasswordModelValidator"></bean>
 </beans>

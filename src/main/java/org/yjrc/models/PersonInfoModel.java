@@ -1,6 +1,5 @@
 package org.yjrc.models;
 
-import java.util.Date;
 
 /**
  * 

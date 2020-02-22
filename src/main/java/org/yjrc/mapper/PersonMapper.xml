@@ -32,7 +32,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT * FROM PERSON WHERE ID = #{id};
 	</select>	
 	
-	<insert id = "savePerson" parameterType = "org.yjrc.domain.Person">
+	<update id = "savePerson" parameterType = "org.yjrc.domain.Person">
 	   UPDATE person SET name = #{name}, gender = #{gender}, date_of_birth = #{dateOfBirth} , 
 	   					nationality = #{nationality}, native_place = #{nativePlace} ,
 	   					birth_place = #{birthPlace}, political_status = #{politicalStatus} , 
@@ -45,9 +45,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	   					professional_technical_position = #{professionalTechnicalPosition} ,
 	   					address = #{address} 
 	   WHERE ID = #{id};	      
-	</insert>	
+	</update>	
 	
 	<select id="getAllPerson" resultMap="result">
 		SELECT * FROM person;
+	</select>
+	
+	<select id="getPersonCountByRole" resultType="java.lang.Integer">
+		SELECT COUNT(*) FROM person WHERE role=#{role};
+	</select>
+	
+	<select id="getPersonByRole" resultMap="result">
+		SELECT * FROM person WHERE role=#{role} ORDER BY id LIMIT #{offset}, #{count};
 	</select>
 </mapper> 

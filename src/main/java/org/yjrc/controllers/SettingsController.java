@@ -1,5 +1,12 @@
 package org.yjrc.controllers;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,18 +28,10 @@ import org.yjrc.service.PersonService;
 import org.yjrc.service.WorkExperienceService;
 import org.yjrc.utils.MyStrings;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-
 @Controller
-@RequestMapping("/user")
-public class PersonController {
-		
+@RequestMapping(value = "/settings")
+public class SettingsController {
+	
 	@Autowired
 	private PersonService personService;
 	
@@ -47,7 +46,6 @@ public class PersonController {
 	
 	@Autowired
 	private AuthenticationFacade authenticationFacade;
-	
 	
 	@RequestMapping(value="/userInfo", method = RequestMethod.GET)
 	public ModelAndView editUserPage(@RequestParam(name="error", required = false) boolean error) {		
@@ -107,17 +105,6 @@ public class PersonController {
 			
 		this.personService.savePerson(person);
 		return "redirect:/user/userInfo";
-	}
-	
-	/*
-	 * 查看人员列表
-	 */
-	@RequestMapping(value="/viewPersonList", method = RequestMethod.GET)
-	public String showPersonList(Model model) {
-		/*List<Person> personList = personService.getAllPerson();
-		model.addAttribute("lists", personList);
-		model.addAttribute("person1", "bb");//personList.get(0).getId());
-*/		return "viewPersonList";
 	}
 	
 	/*

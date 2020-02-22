@@ -1,7 +1,6 @@
 package org.yjrc.utils;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 
 /**
  * @author cyh
@@ -11,10 +10,21 @@ import org.springframework.security.crypto.password.PasswordEncoder;
  */
 public class SSPWUtils {
 	
+	static BCryptPasswordEncoder encoder = new BCryptPasswordEncoder(11);
+	
 	public static boolean  tt(String rawPassword) {
-		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder(11);
+		
 		String password = /*"$2a$11$RbbWgbFw7yfB3jpAtIW8WedsVeoMoEAEL9TVY28uKtJUGAv8PvVmK";*/ encoder.encode(rawPassword);
 		System.out.println(password);
 		return encoder.matches(rawPassword, password);
+	}
+	
+	
+	public static String encode(String raw) {
+		return encoder.encode(raw);
+	}
+	
+	public static boolean matches(String raw, String encoded) {
+		return encoder.matches(raw, encoded);		
 	}
 }

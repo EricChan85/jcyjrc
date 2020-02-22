@@ -47,11 +47,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav">
                 <a class="nav-item nav-link" href="<c:url value="/welcome" />">首页 <span class="sr-only">(current)</span></a>
-                <a class="nav-item nav-link active" href="#">个人信息</a>
-                <a class="nav-item nav-link" href="#">通讯录</a>
-                <a class="nav-item nav-link" href="#">故障报修</a>
+                <a class="nav-item nav-link" href="<c:url value="/settings/userInfo" />">个人信息</a>
+                <a class="nav-item nav-link" href="<c:url value="/contacts/contacts" />">通讯录</a>
+                <a class="nav-item nav-link" href="<c:url value="/repair/myRepair" />">故障报修</a>
                 <a class="nav-item nav-link" href="#">留言</a>
             </div>
         </div>	
 	</div>
 </nav>
+
+<script type="text/javascript">
+	$(document).ready(function() {		
+		$('.navbar-nav a[href^="/JcYJRC/' + location.pathname.split("/")[2] + '"]').addClass('active');
+	});
+</script>
+

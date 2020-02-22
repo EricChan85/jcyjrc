@@ -1,0 +1,250 @@
+DROP TABLE IF EXISTS yjrc.person;
+CREATE TABLE yjrc.person(
+   ID int(10) NOT NULL AUTO_INCREMENT,  
+   USERNAME varchar(45) NOT NULL,
+   PASSWORD varchar(60) NOT NULL,
+    name nvarchar(30) DEFAULT NULL ,
+    gender nvarchar(5) DEFAULT NULL ,
+    date_of_birth DATE DEFAULT NULL ,
+    nationality nvarchar(10) DEFAULT NULL ,
+    native_place nvarchar(30) DEFAULT NULL ,
+    birth_place nvarchar(30) DEFAULT NULL ,
+    political_status nvarchar(10) DEFAULT NULL ,
+    education nvarchar(20) DEFAULT NULL ,
+    health_condition nvarchar(20) DEFAULT NULL ,
+    date_of_joining_the_party DATE DEFAULT NULL ,
+    date_of_starting_to_work DATE DEFAULT NULL ,
+    date_of_entering DATE DEFAULT NULL ,
+    number_of_id_card varchar(20) DEFAULT NULL ,
+    phone varchar(20) DEFAULT NULL ,
+    institution nvarchar(50) DEFAULT NULL,
+    position nvarchar(50) DEFAULT NULL ,
+    professional_technical_position nvarchar(100) DEFAULT NULL ,
+    photo varchar(20) DEFAULT NULL ,
+    address nvarchar(100) DEFAULT NULL ,
+    education_experience nvarchar(1000) DEFAULT NULL ,
+    work_experience nvarchar(1000) DEFAULT NULL ,
+    honors nvarchar(1000) DEFAULT NULL ,
+    skills_and_interests nvarchar(1000) DEFAULT NULL ,
+   ROLE varchar(45) NOT NULL,
+   PRIMARY KEY ( ID )
+);
+
+insert into yjrc.person (name, username, password, phone, role) values 
+('С��', 'xiaoming', '$2a$11$jFhURK78qYIgycjltn4Rce62z6LzUwOi9ktYnUDkLm5jfxuJQMzhS', '13689451185', 'ROLE_ADMIN'),
+('����', 'lilei', '$2a$11$jFhURK78qYIgycjltn4Rce62z6LzUwOi9ktYnUDkLm5jfxuJQMzhS', '13689451185', 'ROLE_USER');
+
+insert into yjrc.person (name, username, password, phone, role) values 
+('����1', 'lilei1', '$2a$11$jFhURK78qYIgycjltn4Rce62z6LzUwOi9ktYnUDkLm5jfxuJQMzhS', '13689451185', 'ROLE_USER'),
+('����2', 'lilei2', '$2a$11$jFhURK78qYIgycjltn4Rce62z6LzUwOi9ktYnUDkLm5jfxuJQMzhS', '13689451185', 'ROLE_USER'),
+('����3', 'lilei3', '$2a$11$jFhURK78qYIgycjltn4Rce62z6LzUwOi9ktYnUDkLm5jfxuJQMzhS', '13689451185', 'ROLE_USER'),
+('����4', 'lilei4', '$2a$11$jFhURK78qYIgycjltn4Rce62z6LzUwOi9ktYnUDkLm5jfxuJQMzhS', '13689451185', 'ROLE_USER'),
+('����5', 'lilei5', '$2a$11$jFhURK78qYIgycjltn4Rce62z6LzUwOi9ktYnUDkLm5jfxuJQMzhS', '13689451185', 'ROLE_USER'),
+('����6', 'lilei6', '$2a$11$jFhURK78qYIgycjltn4Rce62z6LzUwOi9ktYnUDkLm5jfxuJQMzhS', '13689451185', 'ROLE_USER'),
+('����7', 'lilei7', '$2a$11$jFhURK78qYIgycjltn4Rce62z6LzUwOi9ktYnUDkLm5jfxuJQMzhS', '13689451185', 'ROLE_USER'),
+('����8', 'lilei8', '$2a$11$jFhURK78qYIgycjltn4Rce62z6LzUwOi9ktYnUDkLm5jfxuJQMzhS', '13689451185', 'ROLE_USER'),
+('����9', 'lilei9', '$2a$11$jFhURK78qYIgycjltn4Rce62z6LzUwOi9ktYnUDkLm5jfxuJQMzhS', '13689451185', 'ROLE_USER'),
+('����10', 'lilei10', '$2a$11$jFhURK78qYIgycjltn4Rce62z6LzUwOi9ktYnUDkLm5jfxuJQMzhS', '13689451185', 'ROLE_USER'),
+('����11', 'lilei11', '$2a$11$jFhURK78qYIgycjltn4Rce62z6LzUwOi9ktYnUDkLm5jfxuJQMzhS', '13689451185', 'ROLE_USER'),
+('����12', 'lilei12', '$2a$11$jFhURK78qYIgycjltn4Rce62z6LzUwOi9ktYnUDkLm5jfxuJQMzhS', '13689451185', 'ROLE_USER'),
+('����13', 'lilei13', '$2a$11$jFhURK78qYIgycjltn4Rce62z6LzUwOi9ktYnUDkLm5jfxuJQMzhS', '13689451185', 'ROLE_USER'),
+('����14', 'lilei14', '$2a$11$jFhURK78qYIgycjltn4Rce62z6LzUwOi9ktYnUDkLm5jfxuJQMzhS', '13689451185', 'ROLE_USER'),
+('����15', 'lilei15', '$2a$11$jFhURK78qYIgycjltn4Rce62z6LzUwOi9ktYnUDkLm5jfxuJQMzhS', '13689451185', 'ROLE_USER'),
+('����16', 'lilei16', '$2a$11$jFhURK78qYIgycjltn4Rce62z6LzUwOi9ktYnUDkLm5jfxuJQMzhS', '13689451185', 'ROLE_USER'),
+('����17', 'lilei17', '$2a$11$jFhURK78qYIgycjltn4Rce62z6LzUwOi9ktYnUDkLm5jfxuJQMzhS', '13689451185', 'ROLE_USER'),
+('����18', 'lilei18', '$2a$11$jFhURK78qYIgycjltn4Rce62z6LzUwOi9ktYnUDkLm5jfxuJQMzhS', '13689451185', 'ROLE_USER'),
+('����19', 'lilei19', '$2a$11$jFhURK78qYIgycjltn4Rce62z6LzUwOi9ktYnUDkLm5jfxuJQMzhS', '13689451185', 'ROLE_USER'),
+('����20', 'lilei20', '$2a$11$jFhURK78qYIgycjltn4Rce62z6LzUwOi9ktYnUDkLm5jfxuJQMzhS', '13689451185', 'ROLE_USER'),
+('����21', 'lilei21', '$2a$11$jFhURK78qYIgycjltn4Rce62z6LzUwOi9ktYnUDkLm5jfxuJQMzhS', '13689451185', 'ROLE_USER'),
+('����22', 'lilei22', '$2a$11$jFhURK78qYIgycjltn4Rce62z6LzUwOi9ktYnUDkLm5jfxuJQMzhS', '13689451185', 'ROLE_USER'),
+('����23', 'lilei23', '$2a$11$jFhURK78qYIgycjltn4Rce62z6LzUwOi9ktYnUDkLm5jfxuJQMzhS', '13689451185', 'ROLE_USER'),
+('����24', 'lilei24', '$2a$11$jFhURK78qYIgycjltn4Rce62z6LzUwOi9ktYnUDkLm5jfxuJQMzhS', '13689451185', 'ROLE_USER'),
+('����25', 'lilei25', '$2a$11$jFhURK78qYIgycjltn4Rce62z6LzUwOi9ktYnUDkLm5jfxuJQMzhS', '13689451185', 'ROLE_USER'),
+('����26', 'lilei26', '$2a$11$jFhURK78qYIgycjltn4Rce62z6LzUwOi9ktYnUDkLm5jfxuJQMzhS', '13689451185', 'ROLE_USER'),
+('����27', 'lilei27', '$2a$11$jFhURK78qYIgycjltn4Rce62z6LzUwOi9ktYnUDkLm5jfxuJQMzhS', '13689451185', 'ROLE_USER'),
+('����28', 'lilei28', '$2a$11$jFhURK78qYIgycjltn4Rce62z6LzUwOi9ktYnUDkLm5jfxuJQMzhS', '13689451185', 'ROLE_USER'),
+('����29', 'lilei29', '$2a$11$jFhURK78qYIgycjltn4Rce62z6LzUwOi9ktYnUDkLm5jfxuJQMzhS', '13689451185', 'ROLE_USER'),
+('����30', 'lilei30', '$2a$11$jFhURK78qYIgycjltn4Rce62z6LzUwOi9ktYnUDkLm5jfxuJQMzhS', '13689451185', 'ROLE_USER'),
+('����31', 'lilei31', '$2a$11$jFhURK78qYIgycjltn4Rce62z6LzUwOi9ktYnUDkLm5jfxuJQMzhS', '13689451185', 'ROLE_USER'),
+('����32', 'lilei32', '$2a$11$jFhURK78qYIgycjltn4Rce62z6LzUwOi9ktYnUDkLm5jfxuJQMzhS', '13689451185', 'ROLE_USER'),
+('����33', 'lilei33', '$2a$11$jFhURK78qYIgycjltn4Rce62z6LzUwOi9ktYnUDkLm5jfxuJQMzhS', '13689451185', 'ROLE_USER'),
+('����34', 'lilei34', '$2a$11$jFhURK78qYIgycjltn4Rce62z6LzUwOi9ktYnUDkLm5jfxuJQMzhS', '13689451185', 'ROLE_USER'),
+('����35', 'lilei35', '$2a$11$jFhURK78qYIgycjltn4Rce62z6LzUwOi9ktYnUDkLm5jfxuJQMzhS', '13689451185', 'ROLE_USER'),
+('����36', 'lilei36', '$2a$11$jFhURK78qYIgycjltn4Rce62z6LzUwOi9ktYnUDkLm5jfxuJQMzhS', '13689451185', 'ROLE_USER'),
+('����37', 'lilei37', '$2a$11$jFhURK78qYIgycjltn4Rce62z6LzUwOi9ktYnUDkLm5jfxuJQMzhS', '13689451185', 'ROLE_USER'),
+('����38', 'lilei38', '$2a$11$jFhURK78qYIgycjltn4Rce62z6LzUwOi9ktYnUDkLm5jfxuJQMzhS', '13689451185', 'ROLE_USER'),
+('����39', 'lilei39', '$2a$11$jFhURK78qYIgycjltn4Rce62z6LzUwOi9ktYnUDkLm5jfxuJQMzhS', '13689451185', 'ROLE_USER'),
+('����40', 'lilei40', '$2a$11$jFhURK78qYIgycjltn4Rce62z6LzUwOi9ktYnUDkLm5jfxuJQMzhS', '13689451185', 'ROLE_USER'),
+('����41', 'lilei41', '$2a$11$jFhURK78qYIgycjltn4Rce62z6LzUwOi9ktYnUDkLm5jfxuJQMzhS', '13689451185', 'ROLE_USER'),
+('����42', 'lilei42', '$2a$11$jFhURK78qYIgycjltn4Rce62z6LzUwOi9ktYnUDkLm5jfxuJQMzhS', '13689451185', 'ROLE_USER'),
+('����43', 'lilei43', '$2a$11$jFhURK78qYIgycjltn4Rce62z6LzUwOi9ktYnUDkLm5jfxuJQMzhS', '13689451185', 'ROLE_USER'),
+('����44', 'lilei44', '$2a$11$jFhURK78qYIgycjltn4Rce62z6LzUwOi9ktYnUDkLm5jfxuJQMzhS', '13689451185', 'ROLE_USER'),
+('����45', 'lilei45', '$2a$11$jFhURK78qYIgycjltn4Rce62z6LzUwOi9ktYnUDkLm5jfxuJQMzhS', '13689451185', 'ROLE_USER'),
+('����46', 'lilei46', '$2a$11$jFhURK78qYIgycjltn4Rce62z6LzUwOi9ktYnUDkLm5jfxuJQMzhS', '13689451185', 'ROLE_USER'),
+('����47', 'lilei47', '$2a$11$jFhURK78qYIgycjltn4Rce62z6LzUwOi9ktYnUDkLm5jfxuJQMzhS', '13689451185', 'ROLE_USER'),
+('����48', 'lilei48', '$2a$11$jFhURK78qYIgycjltn4Rce62z6LzUwOi9ktYnUDkLm5jfxuJQMzhS', '13689451185', 'ROLE_USER'),
+('����49', 'lilei49', '$2a$11$jFhURK78qYIgycjltn4Rce62z6LzUwOi9ktYnUDkLm5jfxuJQMzhS', '13689451185', 'ROLE_USER'),
+('����50', 'lilei50', '$2a$11$jFhURK78qYIgycjltn4Rce62z6LzUwOi9ktYnUDkLm5jfxuJQMzhS', '13689451185', 'ROLE_USER'),
+('����51', 'lilei51', '$2a$11$jFhURK78qYIgycjltn4Rce62z6LzUwOi9ktYnUDkLm5jfxuJQMzhS', '13689451185', 'ROLE_USER'),
+('����52', 'lilei52', '$2a$11$jFhURK78qYIgycjltn4Rce62z6LzUwOi9ktYnUDkLm5jfxuJQMzhS', '13689451185', 'ROLE_USER'),
+('����53', 'lilei53', '$2a$11$jFhURK78qYIgycjltn4Rce62z6LzUwOi9ktYnUDkLm5jfxuJQMzhS', '13689451185', 'ROLE_USER'),
+('����54', 'lilei54', '$2a$11$jFhURK78qYIgycjltn4Rce62z6LzUwOi9ktYnUDkLm5jfxuJQMzhS', '13689451185', 'ROLE_USER'),
+('����55', 'lilei55', '$2a$11$jFhURK78qYIgycjltn4Rce62z6LzUwOi9ktYnUDkLm5jfxuJQMzhS', '13689451185', 'ROLE_USER'),
+('����56', 'lilei56', '$2a$11$jFhURK78qYIgycjltn4Rce62z6LzUwOi9ktYnUDkLm5jfxuJQMzhS', '13689451185', 'ROLE_USER'),
+('����57', 'lilei57', '$2a$11$jFhURK78qYIgycjltn4Rce62z6LzUwOi9ktYnUDkLm5jfxuJQMzhS', '13689451185', 'ROLE_USER'),
+('����58', 'lilei58', '$2a$11$jFhURK78qYIgycjltn4Rce62z6LzUwOi9ktYnUDkLm5jfxuJQMzhS', '13689451185', 'ROLE_USER'),
+('����59', 'lilei59', '$2a$11$jFhURK78qYIgycjltn4Rce62z6LzUwOi9ktYnUDkLm5jfxuJQMzhS', '13689451185', 'ROLE_USER'),
+('����60', 'lilei60', '$2a$11$jFhURK78qYIgycjltn4Rce62z6LzUwOi9ktYnUDkLm5jfxuJQMzhS', '13689451185', 'ROLE_USER'),
+('����61', 'lilei61', '$2a$11$jFhURK78qYIgycjltn4Rce62z6LzUwOi9ktYnUDkLm5jfxuJQMzhS', '13689451185', 'ROLE_USER'),
+('����62', 'lilei62', '$2a$11$jFhURK78qYIgycjltn4Rce62z6LzUwOi9ktYnUDkLm5jfxuJQMzhS', '13689451185', 'ROLE_USER'),
+('����63', 'lilei63', '$2a$11$jFhURK78qYIgycjltn4Rce62z6LzUwOi9ktYnUDkLm5jfxuJQMzhS', '13689451185', 'ROLE_USER'),
+('����64', 'lilei64', '$2a$11$jFhURK78qYIgycjltn4Rce62z6LzUwOi9ktYnUDkLm5jfxuJQMzhS', '13689451185', 'ROLE_USER'),
+('����65', 'lilei65', '$2a$11$jFhURK78qYIgycjltn4Rce62z6LzUwOi9ktYnUDkLm5jfxuJQMzhS', '13689451185', 'ROLE_USER'),
+('����66', 'lilei66', '$2a$11$jFhURK78qYIgycjltn4Rce62z6LzUwOi9ktYnUDkLm5jfxuJQMzhS', '13689451185', 'ROLE_USER'),
+('����67', 'lilei67', '$2a$11$jFhURK78qYIgycjltn4Rce62z6LzUwOi9ktYnUDkLm5jfxuJQMzhS', '13689451185', 'ROLE_USER'),
+('����68', 'lilei68', '$2a$11$jFhURK78qYIgycjltn4Rce62z6LzUwOi9ktYnUDkLm5jfxuJQMzhS', '13689451185', 'ROLE_USER'),
+('����69', 'lilei69', '$2a$11$jFhURK78qYIgycjltn4Rce62z6LzUwOi9ktYnUDkLm5jfxuJQMzhS', '13689451185', 'ROLE_USER'),
+('����70', 'lilei70', '$2a$11$jFhURK78qYIgycjltn4Rce62z6LzUwOi9ktYnUDkLm5jfxuJQMzhS', '13689451185', 'ROLE_USER'),
+('����71', 'lilei71', '$2a$11$jFhURK78qYIgycjltn4Rce62z6LzUwOi9ktYnUDkLm5jfxuJQMzhS', '13689451185', 'ROLE_USER'),
+('����72', 'lilei72', '$2a$11$jFhURK78qYIgycjltn4Rce62z6LzUwOi9ktYnUDkLm5jfxuJQMzhS', '13689451185', 'ROLE_USER');
+
+
+DROP TABLE IF EXISTS yjrc.enums;
+CREATE TABLE yjrc.enums(
+   ID int(10) NOT NULL AUTO_INCREMENT,  
+   ENUM_TYPE varchar(45) NOT NULL,
+   ENUM_NAME nvarchar(45) NOT NULL,
+   ENUM_VALUE INT NOT NULL,
+   PRIMARY KEY ( ID )
+);
+
+INSERT INTO yjrc.enums (enum_type, enum_name, enum_value) values 
+("nationality","����",1),
+("nationality","�ɹ���",2),
+("nationality","����",3),
+("nationality","����",4),
+("nationality","ά�����",5),
+("nationality","����",6),
+("nationality","����",7),
+("nationality","׳��",8),
+("nationality","������",9),
+("nationality","������",10),
+("nationality","����",11),
+("nationality","����",12),
+("nationality","����",13),
+("nationality","����",14),
+("nationality","������",15),
+("nationality","������",16),
+("nationality","��������",17),
+("nationality","����",18),
+("nationality","����",19),
+("nationality","������",20),
+("nationality","����",21),
+("nationality","���",22),
+("nationality","��ɽ��",23),
+("nationality","������",24),
+("nationality","ˮ��",25),
+("nationality","������",26),
+("nationality","������",27),
+("nationality","������",28),
+("nationality","�¶�������",29),
+("nationality","����",30),
+("nationality","���Ӷ���",31),
+("nationality","������",32),
+("nationality","Ǽ��",33),
+("nationality","������",34),
+("nationality","������",35),
+("nationality","ë����",36),
+("nationality","������",37),
+("nationality","������",38),
+("nationality","������",39),
+("nationality","������",40),
+("nationality","��������",41),
+("nationality","ŭ��",42),
+("nationality","���α����",43),
+("nationality","����˹��",44),
+("nationality","���¿���",45),
+("nationality","�°���",46),
+("nationality","������",47),
+("nationality","ԣ����",48),
+("nationality","����",49),
+("nationality","��������",50),
+("nationality","������",51),
+("nationality","���״���",52),
+("nationality","������",53),
+("nationality","�Ű���",54),
+("nationality","�����",55),
+("nationality","��ŵ��",56);
+
+INSERT INTO yjrc.enums (enum_type, enum_name, enum_value) values 
+("politicaStatus","�й���Ա",1),
+("politicaStatus","�й�Ԥ����Ա",2),
+("politicaStatus","������Ա",3),
+("politicaStatus","��ﵳԱ",4),
+("politicaStatus","������Ա",5),
+("politicaStatus","�񽨻�Ա",6),
+("politicaStatus","�����Ա",7),
+("politicaStatus","ũ������Ա",8),
+("politicaStatus","�¹�����Ա",9),
+("politicaStatus","����ѧ����Ա",10),
+("politicaStatus","̨����Ա",11),
+("politicaStatus","�޵�����ʿ",12),
+("politicaStatus","Ⱥ��",13);
+
+DROP TABLE IF EXISTS yjrc.education_experiences;
+CREATE TABLE yjrc.education_experiences(
+   ID int(10) NOT NULL AUTO_INCREMENT,  
+   PERSON_ID int(10) NOT NULL,
+   START_DATE DATE DEFAULT NULL ,
+   END_DATE DATE DEFAULT NULL ,
+   DETAILS varchar(200) NOT NULL,
+   PRIMARY KEY ( ID )
+);
+
+DROP TABLE IF EXISTS yjrc.work_experience;
+CREATE TABLE yjrc.work_experience(
+   ID int(10) NOT NULL AUTO_INCREMENT,  
+   PERSON_ID int(10) NOT NULL,
+   START_DATE DATE DEFAULT NULL ,
+   END_DATE DATE DEFAULT NULL ,
+   DETAILS varchar(200) NOT NULL,
+   PRIMARY KEY ( ID )
+);
+
+DROP TABLE IF EXISTS yjrc.repair;
+CREATE TABLE yjrc.repair(
+   ID int(10) NOT NULL AUTO_INCREMENT,  
+   PERSON_ID int(10) NOT NULL,
+   ADDRESS NVARCHAR(200) NOT NULL,
+   PHONE VARCHAR(20) NOT NULL,
+   DETAILS NVARCHAR(200) NOT NULL,
+   START_TIME DATETIME DEFAULT NULL ,
+   END_TIME DATETIME DEFAULT NULL ,
+   CREATE_TIME DATETIME NOT NULL,
+   FINISHE_TIME DATETIME DEFAULT NULL,
+   REPAIRMAN_ID INT(10) DEFAULT NULL,
+   REPAIR_TIME DATETIME DEFAULT NULL,
+   UNFINISHED_REASON NVARCHAR(300) DEFAULT NULL,   
+   EVALUATION NVARCHAR(300) DEFAULT NULL,
+   PRIMARY KEY ( ID )
+);
+
+
+
+//******************************************************************************************************** 
+
+DROP TABLE IF EXISTS yjrc.person_roles;
+CREATE TABLE yjrc.person_roles(
+   ID int(10) NOT NULL AUTO_INCREMENT,  
+   USERNAME varchar(45) NOT NULL,
+   ROLE varchar(45) NOT NULL,
+   PRIMARY KEY ( ID ),
+   UNIQUE KEY uni_username_role (role,username),
+   KEY fk_username_idx (username),
+   CONSTRAINT fk_username FOREIGN KEY (username) REFERENCES person (username)
+);
+
+INSERT INTO user_roles (username, role)
+VALUES ('xiaoming', 'ROLE_ADMIN');
+INSERT INTO user_roles (username, role)
+VALUES ('lilei', 'ROLE_USER');

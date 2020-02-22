@@ -1,16 +1,13 @@
 package org.yjrc.service;
 
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.yjrc.dao.PersonDao;
 import org.yjrc.domain.Person;
+import org.yjrc.models.PagedResult;
 import org.yjrc.models.PersonInfoModel;
-import org.yjrc.utils.MyConfig;
-import org.yjrc.utils.PWUtils;
 
 @Service("personService")
 public class PersonServiceImpl implements PersonService {
@@ -18,8 +15,8 @@ public class PersonServiceImpl implements PersonService {
 	@Autowired
 	private PersonDao personDao;
 	
-	@Autowired
-	private MyConfig myConfig;
+	
+	private static final String ROLE_USER = "ROLE_USER";
 	
 	public Person getPersonById(Integer id) {
 		return this.personDao.getPersonById(id);
@@ -64,5 +61,16 @@ public class PersonServiceImpl implements PersonService {
 		person.setProfessionalTechnicalPosition(model.getProfessionalTechnicalPosition());
 		person.setAddress(model.getAddress());
 		return person;
+	}
+
+	@Override
+	public PagedResult<Person> getPersonByRole(int pageIndex, int count) {
+		int offset = (pageIndex - 1) * count;
+		Integer sum = personDao.getPersonCountByRole(ROLE_USER);
+		if (sum == null) {
+			sum = 0;
+		}
+		List<Person> list = personDao.getPersonByRole(ROLE_USER, offset, count);
+		return new PagedResult<Person>(list, sum, pageIndex, count);
 	}
 }

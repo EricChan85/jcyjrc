@@ -38,7 +38,7 @@ public class PersonDaoImplTest {
 		Assert.assertFalse(list.isEmpty());
 	}
 	
-	@Test
+	/*@Test
 	public void testSavePerson() {
 		int id = 2;
 		String name = "李雷1";
@@ -47,9 +47,22 @@ public class PersonDaoImplTest {
 		person.setName("李雷1");
 		person.setGender('M');
 		person.setDateOfBirth("1990.01.01");
-		/*person.setBirthPlace(birthPlace);*/
+		person.setBirthPlace(birthPlace);
 		personDao.savePerson(person);
 		person = personDao.getPersonById(id);
 		Assert.assertTrue(name.equals(person.getName()));
+	}*/
+	
+	
+	@Test 
+	public void getPersonCountByRoleTest() {
+		int count = personDao.getPersonCountByRole("ROLE_USER");
+		Assert.assertTrue(count > 0);;
+	}
+	
+	@Test 
+	public void getPersonByRoleTest() {
+		List<Person> list = personDao.getPersonByRole("ROLE_USER", 0 , 10);
+		Assert.assertFalse(list.isEmpty());
 	}
 }

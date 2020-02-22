@@ -6,4 +6,6 @@
 	<bean id="myConfig" class="org.yjrc.utils.MyConfig">
 	</bean>
 	<bean id="authenticationFacade" class="org.yjrc.config.AuthenticationFacade"></bean>
+	
+	<bean id="modelMapper" class="org.modelmapper.ModelMapper"></bean>
 </beans>

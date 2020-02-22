@@ -6,5 +6,5 @@ public interface UserDao {
 
 	User getUserByUserName(String userName);
 	
-	
+	void changePassword(User user);
 }

@@ -1,6 +1,5 @@
 package org.yjrc.dao;
 
-import static org.junit.Assert.*;
 
 import java.util.List;
 
@@ -10,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.util.Assert;
-import org.yjrc.domain.EducationExperiences;
 import org.yjrc.domain.WorkExperience;
 
 @ContextConfiguration({"classpath:/spring-config.xml"})
@@ -28,7 +26,7 @@ public class WorkExperienceDaoTest {
 		ee.setEndDate("2020.01.01");
 		ee.setDetails("在北京大学学习");
 		workExperienceDao.insertWorkExperience(ee);
-		Assert.isTrue(1 == 1);
+		/*Assert.isTrue(1 == 1);*/
 	}
 	
 	@Test

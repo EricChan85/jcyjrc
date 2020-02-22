@@ -14,4 +14,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="getUserByUserName" parameterType="String" resultMap="user">
 		SELECT ID, NAME, PASSWORD, ROLE FROM PERSON WHERE USERNAME = #{username} LIMIT 1;
 	</select>
+	
+	<update id="changePassword" parameterType="org.yjrc.domain.User">
+		UPDATE Person SET PASSWORD = #{password} WHERE ID = #{id};
+	</update>
 </mapper>

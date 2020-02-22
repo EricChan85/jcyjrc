@@ -42,7 +42,7 @@
 		                                </dd>
 	                                </dl>
 	                                <div class="btn">
-		                                <a class="personcenter fl" href="user/userInfo">进入个人中心</a>
+		                                <a class="personcenter fl" href="settings/userInfo">进入个人中心</a>
 		                                <a class="fr" href="logout">退出</a>
 	                                </div>
 	                            </div>

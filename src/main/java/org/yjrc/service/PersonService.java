@@ -3,6 +3,7 @@ package org.yjrc.service;
 import java.util.List;
 
 import org.yjrc.domain.Person;
+import org.yjrc.models.PagedResult;
 import org.yjrc.models.PersonInfoModel;
 
 public interface PersonService {
@@ -12,4 +13,6 @@ public interface PersonService {
 	List<Person> getAllPerson();
 	
 	void savePerson(PersonInfoModel model);
+	
+	PagedResult<Person> getPersonByRole(int pageIndex, int count);
 }
