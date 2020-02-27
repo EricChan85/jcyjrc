@@ -88,12 +88,12 @@ $(document).ready(function () {
     });
     
     $('#btnToSave').click(function() {
-    	var tableData = [];
-    	var rowData = {};
+    	var tableData = [];    	
     	$('.table').find('tr').each(function(rowIndex, r) {
     		if (rowIndex == 0) {
     			return;
-    		}	    		
+    		}	  
+    		var rowData = {};
     		rowData["startDate"] = $(this).find('td:first').text();
     		rowData["endDate"] = $(this).find('td').eq(1).text();
     		rowData["details"] = $(this).find('td').eq(2).text();

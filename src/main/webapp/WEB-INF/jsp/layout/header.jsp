@@ -27,7 +27,7 @@
 						<sec:authorize access="!isAuthenticated()">
 							<a style="color:white" class="fr loginbtn" href="login">登录</a>
 						</sec:authorize>                                     
-                        <sec:authorize access="isAuthenticated()">
+                        <sec:authorize access="hasRole('ROLE_USER')">
 							<div class="personal">
 	                            <dl class="user fr">
 	                                <dd><sec:authentication property="principal.name" /><img class="down fr" src="<c:url value="/static/img/top_down.png" />"/></dd>
@@ -41,15 +41,34 @@
 		                                    <!-- <p>市司法局</p> -->
 		                                </dd>
 	                                </dl>
-	                                <div class="btn">
-		                                <a class="personcenter fl" href="settings/userInfo">进入个人中心</a>
+	                                <div class="btn">                                	
+                                		<a class="personcenter fl" href="settings/userInfo">进入个人中心</a>                                	                           
 		                                <a class="fr" href="logout">退出</a>
 	                                </div>
 	                            </div>
 	                        </div>
 						</sec:authorize> 
-						
-						
+						<sec:authorize access="hasRole('ROLE_STAFF')">
+							<div class="personal">
+	                            <dl class="user fr">
+	                                <dd><sec:authentication property="principal.name" /><img class="down fr" src="<c:url value="/static/img/top_down.png" />"/></dd>
+	                                <dt><img width="20" height="20" src="<c:url value="/static/img/default_profile_photo.png" />" /></dt>
+	                            </dl>	
+	                            <div class="userdetail">
+	                            	<dl>
+		                                <dt><img width="80" height="80" src="<c:url value="/static/img/default_profile_photo.png" />" /></dt>
+		                                <dd>
+		                                    <h2><!-- 李丹阳 --><sec:authentication property="principal.name" /></h2>
+		                                    <!-- <p>市司法局</p> -->
+		                                </dd>
+	                                </dl>	                            
+	                                <div class="btn" >                                	
+                                		<a class="personcenter fl" href="apartment/repair">进入公寓维修</a>                                	                           
+		                                <a class="fr" href="logout">退出</a>
+	                                </div>
+	                            </div>                            
+	                        </div>
+						</sec:authorize>	
 
 
 				</div>

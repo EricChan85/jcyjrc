@@ -28,11 +28,9 @@ public class RepairControllerTest {
 		
 		RepairModel model = modelMapper.map(domain, RepairModel.class);
 		System.out.println(domain.getStartTime());
-		System.out.println("--");
-		System.out.println(model.getStartTime());
+		System.out.println("--");		
 		assertEquals(domain.getPersonId(), model.getPersonId());
-		assertEquals(domain.getAddress(), model.getAddress());
-		assertEquals(domain.getEndTime(), model.getEndTime());
+		assertEquals(domain.getAddress(), model.getAddress());		
 	}
 
 }

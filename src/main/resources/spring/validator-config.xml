@@ -20,4 +20,5 @@
 		
 		
 	<bean id="passwordModelValidator" class="org.yjrc.models.PasswordModelValidator"></bean>
+	<bean id="repairModelValidator" class="org.yjrc.models.RepairModelValidator"></bean>
 </beans>

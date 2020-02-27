@@ -14,5 +14,5 @@ public interface PersonService {
 	
 	void savePerson(PersonInfoModel model);
 	
-	PagedResult<Person> getPersonByRole(int pageIndex, int count);
+	PagedResult<Person> getPersonByRole(int pageIndex, int pageSize);
 }

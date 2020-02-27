@@ -95,7 +95,7 @@
      </div>
  </div>	
 
+
+<%@ include file="../layout/user/footer.jsp" %>
 <script src="<c:url value="/static/js/page/user/workExperience.js?v=01" />"></script>
 
-</body>
-</html>

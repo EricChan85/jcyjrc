@@ -16,12 +16,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<title>个人中心</title>
 		<link href="<c:url value="/static/css/bootstrap4.3.1.min.css" />" rel="stylesheet">
 		<link href="<c:url value="/static/css/jquery-ui.css" />" rel="stylesheet">
-		
+		<link href="<c:url value="/static/css/jquery.datetimepicker.css" />" rel="stylesheet">	
 		
 	    <script src="<c:url value="/static/js/jquery.min.js" />"></script>
-		<script src="<c:url value="/static/js/bootstrap4.3.1.min.js" />"></script>		
-		<script src="<c:url value="/static/js/jquery-ui.min.js" />"></script>		
-		<script src="<c:url value="/static/js/jquery.mtz.monthpicker.js" />"></script>
 	</head>
 <body>
 <div class="jumbotron" style="margin-bottom:0; padding : 0.5em;">

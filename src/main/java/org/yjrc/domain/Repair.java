@@ -55,14 +55,57 @@ public class Repair {
 	private Date repairTime;
 	
 	/*
-	 * 暂时不维修的原因
+	 * 维修工作描述
 	 */
-	private String unfinishedReason;
+	private String repairDescription;
+	
+	public String getRepairDescription() {
+		return repairDescription;
+	}
+
+	public void setRepairDescription(String repairDescription) {
+		this.repairDescription = repairDescription;
+	}
+
+	/*
+	 * 状态
+	 */
+	private int status;
+	
+	public int getStatus() {
+		return status;
+	}
+
+	public void setStatus(int status) {
+		this.status = status;
+	}	
 	
 	/*
-	 * 结束时间
+	 * 对维修的评价
 	 */
-	private Date finishTime;
+	private String evaluation;
+	
+	/*
+	 * 评价时间
+	 */
+	private Date evaluationTime;
+
+	public String getEvaluation() {
+		return evaluation;
+	}
+
+	public void setEvaluation(String evaluation) {
+		this.evaluation = evaluation;
+	}
+
+
+	public Date getEvaluationTime() {
+		return evaluationTime;
+	}
+
+	public void setEvaluationTime(Date evaluationTime) {
+		this.evaluationTime = evaluationTime;
+	}
 
 	public int getId() {
 		return id;
@@ -142,21 +185,5 @@ public class Repair {
 
 	public void setRepairTime(Date repairTime) {
 		this.repairTime = repairTime;
-	}
-
-	public String getUnfinishedReason() {
-		return unfinishedReason;
-	}
-
-	public void setUnfinishedReason(String unfinishedReason) {
-		this.unfinishedReason = unfinishedReason;
-	}
-
-	public Date getFinishTime() {
-		return finishTime;
-	}
-
-	public void setFinishTime(Date finishTime) {
-		this.finishTime = finishTime;
 	}
 }

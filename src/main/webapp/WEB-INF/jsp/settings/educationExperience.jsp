@@ -94,8 +94,9 @@
          </div>
      </div>
  </div>	
-
+ 
+ 
+<%@ include file="../layout/user/footer.jsp" %>
 <script src="<c:url value="/static/js/page/user/educationExperiences.js?v=01" />"></script>
 
-</body>
-</html>
+

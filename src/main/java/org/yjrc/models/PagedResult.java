@@ -20,7 +20,7 @@ public class PagedResult<T> {
     private int pageIndex;
     
     //每页显示数量
-    private int limit;
+    private int pageSize;
     
     //总数
     private int totalElements;
@@ -31,20 +31,20 @@ public class PagedResult<T> {
     //总页数
     private int pageCount;
     
-    public PagedResult(List<T> elements, int totalElements, int pageIndex, int limit) {
+    public PagedResult(List<T> elements, int totalElements, int pageIndex, int pageSize) {
         this.elements = elements;
         this.totalElements = totalElements;
         this.pageIndex = pageIndex;
-        this.limit = limit;    
-        this.pageCount = totalElements / limit + (totalElements % limit > 0 ? 1 : 0);
+        this.pageSize = pageSize;    
+        this.pageCount = totalElements / pageSize + (totalElements % pageSize > 0 ? 1 : 0);
     }
     
     public boolean hasMore() {
-        return totalElements > (pageIndex - 1) * limit + limit;
+        return totalElements > (pageIndex - 1) * pageSize + pageSize;
     }
     
     public boolean hasPrevious() {
-        return (pageIndex - 1) * limit > 0 && totalElements > 0;
+        return (pageIndex - 1) * pageSize > 0 && totalElements > 0;
     }
     
     public int getTotalElements() {
@@ -56,7 +56,7 @@ public class PagedResult<T> {
     }
     
     public int  getOffset() {
-        return (pageIndex - 1) * limit;
+        return (pageIndex - 1) * pageSize;
     }
     
     public int getPageIndex() {
@@ -64,7 +64,7 @@ public class PagedResult<T> {
     }
     
     public int getLimit() {
-        return limit;
+        return pageSize;
     }
     
     public List<T> getElements() {

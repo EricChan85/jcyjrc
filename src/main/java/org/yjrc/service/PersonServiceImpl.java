@@ -1,19 +1,26 @@
 package org.yjrc.service;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.yjrc.dao.PersonDao;
 import org.yjrc.domain.Person;
+import org.yjrc.domain.Repair;
 import org.yjrc.models.PagedResult;
 import org.yjrc.models.PersonInfoModel;
+import org.yjrc.models.RepairModel;
+import org.yjrc.utils.ConstantsUtils;
 
 @Service("personService")
 public class PersonServiceImpl implements PersonService {
 	
 	@Autowired
 	private PersonDao personDao;
+	
+	
 	
 	
 	private static final String ROLE_USER = "ROLE_USER";
@@ -64,13 +71,15 @@ public class PersonServiceImpl implements PersonService {
 	}
 
 	@Override
-	public PagedResult<Person> getPersonByRole(int pageIndex, int count) {
-		int offset = (pageIndex - 1) * count;
+	public PagedResult<Person> getPersonByRole(int pageIndex, int pageSize) {
+		int offset = (pageIndex - 1) * pageSize;
 		Integer sum = personDao.getPersonCountByRole(ROLE_USER);
 		if (sum == null) {
 			sum = 0;
 		}
-		List<Person> list = personDao.getPersonByRole(ROLE_USER, offset, count);
-		return new PagedResult<Person>(list, sum, pageIndex, count);
+		List<Person> list = personDao.getPersonByRole(ROLE_USER, offset, pageSize);		
+		return new PagedResult<Person>(list, sum, pageIndex, pageSize);
 	}
+	
+	
 }

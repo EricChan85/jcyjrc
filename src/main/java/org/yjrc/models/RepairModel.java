@@ -1,16 +1,11 @@
 package org.yjrc.models;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.TimeZone;
 
 import org.yjrc.utils.DateUtils;
 
 public class RepairModel {
-	
-	private static final SimpleDateFormat dateFormat
-    						= new SimpleDateFormat("yyyy-MM-dd HH:mm");
 	
 	/*
 	 * 编号
@@ -42,6 +37,22 @@ public class RepairModel {
 	 */
 	private String endTime;
 	
+	public String getStartTime() {
+		return startTime;
+	}
+
+	public void setStartTime(String startTime) {
+		this.startTime = startTime;
+	}
+
+	public String getEndTime() {
+		return endTime;
+	}
+
+	public void setEndTime(String endTime) {
+		this.endTime = endTime;
+	}
+
 	/*
 	 * 详情
 	 */
@@ -62,28 +73,64 @@ public class RepairModel {
 	 */
 	private Date repairTime;
 	
-	/*
-	 * 暂时不维修的原因
-	 */
-	private String unfinishedReason;
+	private String repairDescription;
+	
+	public String getRepairDescription() {
+		return repairDescription;
+	}
+
+	public void setRepairDescription(String repairDescription) {
+		this.repairDescription = repairDescription;
+	}
 	
 	/*
-	 * 结束时间
+	 * 状态
 	 */
-	private Date finishTime;
+	private int status;
 	
-	public String getStartTime() throws ParseException {
-        /*return DateUtils.getDateFormat().parse(this.startTime);  */
-		return this.startTime;
-    }
+	/*
+	 * 状态值
+	 */
+	private String statusValue;
+	
+	/*
+	 * 对维修的评价
+	 */
+	private String evaluation;	
+	
+	public String getEvaluation() {
+		return evaluation;
+	}
+
+	public void setEvaluation(String evaluation) {
+		this.evaluation = evaluation;
+	}
+
+	public int getStatus() {
+		return status;
+	}
+
+	public void setStatus(int status) {
+		this.status = status;
+	}
+
+	public String getStatusValue() {
+		return statusValue;
+	}
+
+	public void setStatusValue(String statusValue) {
+		this.statusValue = statusValue;
+	}
+
+	
 	
 	public Date getStartTimeConverted() throws ParseException {
 		return DateUtils.getDateFormat().parse(this.startTime);
     }
 
-    public void setStartTime(Date date) {        
+    public void setStartTimeByEntity(Date date) {        
         this.startTime = DateUtils.getDateFormat().format(date);
-    }
+    }	
 
 	public int getId() {
 		return id;
@@ -117,24 +164,13 @@ public class RepairModel {
 		this.phone = phone;
 	}
 
-	/*public String getStartTime() {
-		return startTime;
-	}
 
-	public void setStartTime(String startTime) {
-		this.startTime = startTime;
-	}*/
-
-	public String getEndTime() {
-		return endTime;
-	}
-	
 	public Date getEndTimeConverted() throws ParseException {
 		return DateUtils.getDateFormat().parse(this.endTime);
     }
 
-	public void setEndTime(Date endTime) {
-		this.endTime = DateUtils.getDateFormat().format(endTime);
+	public void setEndTimeByEntity(Date date) {
+		this.endTime = DateUtils.getDateFormat().format(date);
 	}
 
 	public String getDetails() {
@@ -153,7 +189,7 @@ public class RepairModel {
 		return DateUtils.getDateFormat().parse(this.createTime);
     }
 
-	public void setCreateTime(Date createTime) {
+	public void setCreateTimeByEntity(Date createTime) {
 		this.createTime = DateUtils.getDateFormat().format(createTime);
 	}
 
@@ -171,21 +207,5 @@ public class RepairModel {
 
 	public void setRepairTime(Date repairTime) {
 		this.repairTime = repairTime;
-	}
-
-	public String getUnfinishedReason() {
-		return unfinishedReason;
-	}
-
-	public void setUnfinishedReason(String unfinishedReason) {
-		this.unfinishedReason = unfinishedReason;
-	}
-
-	public Date getFinishTime() {
-		return finishTime;
-	}
-
-	public void setFinishTime(Date finishTime) {
-		this.finishTime = finishTime;
 	}
 }

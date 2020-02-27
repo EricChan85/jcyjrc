@@ -1,6 +1,8 @@
 package org.yjrc.dao;
 
 
+import static org.junit.Assert.assertEquals;
+
 import java.util.Date;
 import java.util.List;
 
@@ -30,6 +32,7 @@ public class RepairDaoTest {
 		domain.setStartTime(date);
 		domain.setEndTime(date);
 		domain.setCreateTime(date);
+		domain.setStatus(1);
 		this.repairDao.insertRepair(domain);
 	}
 	
@@ -38,5 +41,56 @@ public class RepairDaoTest {
 		List<Repair> list = this.repairDao.getByPersonId(2);
 		Assert.isTrue(list.size() > 0);
 	}
+	
+	@Test
+	public void getCountByStatusTest() {
+		Integer count = this.repairDao.getCountByStatus(1);
+		Assert.isTrue(count != null && count > 0);
+	}
+	
+	@Test
+	public void getByStatusTest() {
+		List<Repair> list = this.repairDao.getByStatus(1, 0, 10);
+		Assert.isTrue(list.size() > 0);
+	}
 
+	@Test
+	public void getByIdTest() {
+		Repair repair = this.repairDao.getById(1);
+		Assert.notNull(repair);
+	}
+	
+	@Test
+	public void updateRepairDescriptionTest() {
+		Repair repair = this.repairDao.getById(1);
+		String description = "good";
+		int status = 2;
+		int repairmanId = 75;
+		Date repairTime = new Date();
+		repair.setRepairDescription(description);
+		repair.setStatus(status);
+		repair.setRepairmanId(repairmanId);
+		repair.setRepairTime(repairTime);
+		this.repairDao.updateRepairDescription(repair);
+		repair = this.repairDao.getById(1);
+		assertEquals(repair.getRepairDescription(), description);
+		assertEquals(repair.getStatus(), status);
+		assertEquals(repair.getRepairmanId(), repairmanId);
+		/*assertEquals(repair.getRepairTime(), repairTime);*/
+	}
+	
+	@Test
+	public void updateEvaluationTest() {
+		Repair repair = this.repairDao.getById(1);
+		String evaluation = "good";
+		int status = 3;		
+		Date evaluationTime = new Date();
+		repair.setEvaluation(evaluation);
+		repair.setStatus(status);		
+		repair.setEvaluationTime(evaluationTime);
+		this.repairDao.updateEvaluation(repair);
+		repair = this.repairDao.getById(1);
+		assertEquals(repair.getEvaluation(), evaluation);
+		assertEquals(repair.getStatus(), status);
+	}
 }

@@ -26,6 +26,7 @@ import org.yjrc.service.EducationExperiencesService;
 import org.yjrc.service.EnumsService;
 import org.yjrc.service.PersonService;
 import org.yjrc.service.WorkExperienceService;
+import org.yjrc.utils.ConstantsUtils;
 import org.yjrc.utils.MyStrings;
 
 @Controller
@@ -53,9 +54,9 @@ public class SettingsController {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("person", createModel());
 		
-		Map<Integer, String> nationalityItems = enumsService.getAllNationalityItems();
+		Map<Integer, String> nationalityItems = enumsService.getStatusItemsByKey(ConstantsUtils.getNationalityKey());
 		mav.addObject("nationalityItems", nationalityItems);
-		Map<Integer, String> politicalStatusItems = enumsService.getAllPoliticalStatusItems();
+		Map<Integer, String> politicalStatusItems = enumsService.getStatusItemsByKey(ConstantsUtils.getPoliticalStatusKey());
 		mav.addObject("politicalStatusItems", politicalStatusItems);
 		if (error) {
 			mav.addObject("msg", "用户名或密码错误！");
@@ -104,7 +105,7 @@ public class SettingsController {
 	public String savePerson(@ModelAttribute("person")PersonInfoModel person, Model model) {
 			
 		this.personService.savePerson(person);
-		return "redirect:/user/userInfo";
+		return "redirect:/settings/userInfo";
 	}
 	
 	/*

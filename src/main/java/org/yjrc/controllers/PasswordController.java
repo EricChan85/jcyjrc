@@ -52,7 +52,7 @@ public class PasswordController {
 			BindingResult bindingResult, Model model) {
 		
 		if (bindingResult.hasErrors()) {
-			return "/user/changePassword";
+			return "/settings/changePassword";
 		}
 		
 		userService.changePassword(pwModel);

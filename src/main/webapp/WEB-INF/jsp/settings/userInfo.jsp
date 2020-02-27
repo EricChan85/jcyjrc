@@ -202,7 +202,7 @@
 	</div>
 </div>
 
-
+<%@ include file="../layout/user/footer.jsp" %>
 <script type="text/javascript">
 	
 
@@ -214,6 +214,3 @@
 	    $('#inputDateOfEntering').monthpicker();
 	});
 </script>
-
-</body>
-</html>

@@ -1,20 +1,21 @@
 package org.yjrc.service;
 
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.yjrc.dao.EnumsDao;
 import org.yjrc.domain.Enums;
+import org.yjrc.utils.ConstantsUtils;
 
 public class EnumsServiceImpl implements EnumsService {
-
-	//名族
-	private static final String NATIONALITY_KEY = "nationality";
 	
-	//政治面貌
-	private static final String POLITICAL_STATUS_KEY = "politicaStatus";
+	
+	private final ConcurrentMap<String, Map<Integer, String>> cacheMap = new ConcurrentHashMap<>();
 	
 	@Autowired
 	private EnumsDao enumsDao;
@@ -22,35 +23,34 @@ public class EnumsServiceImpl implements EnumsService {
 	
 	@Override
 	public List<Enums> getAllNationality() {
-		return enumsDao.getEnumsByType(NATIONALITY_KEY);
+		return enumsDao.getEnumsByType(ConstantsUtils.getNationalityKey());
 	}
 
 	@Override
 	public List<String> getAllNationalityNames() {
-		return enumsDao.getEnumsNameByType(NATIONALITY_KEY);
+		return enumsDao.getEnumsNameByType(ConstantsUtils.getNationalityKey());
 	}
 
-	@Override
-	public Map<Integer, String> getAllNationalityItems() {
-		List<Enums> list = enumsDao.getEnumsByType(NATIONALITY_KEY);
-		Map<Integer, String> nationalityItems = new LinkedHashMap<Integer, String>();
-		for (int i = 0; i < list.size(); i++) {
-			Enums e = list.get(i);
-			nationalityItems.put(e.getEnumValue(), e.getEnumName());
-		}
-		return nationalityItems;
-	}
 
 	@Override
-	public Map<Integer, String> getAllPoliticalStatusItems() {
-		List<Enums> list = enumsDao.getEnumsByType(POLITICAL_STATUS_KEY);
-		Map<Integer, String> items = new LinkedHashMap<Integer, String>();
-		for (int i = 0; i < list.size(); i++) {
-			Enums e = list.get(i);
-			items.put(e.getEnumValue(), e.getEnumName());
+	public Map<Integer, String> getStatusItemsByKey(String key) {
+		Map<Integer, String> pairs = cacheMap.get(key);
+		if (pairs == null) {
+			List<Enums> list = enumsDao.getEnumsByType(key);
+			pairs = new LinkedHashMap<Integer, String>();
+			for (int i = 0; i < list.size(); i++) {
+				Enums e = list.get(i);
+				pairs.put(e.getEnumValue(), e.getEnumName());
+			}
+			Map<Integer, String> old = cacheMap.putIfAbsent(key, pairs);
+			if (old != null) {
+				pairs = old;
+			}
 		}
-		return items;
+		
+		return pairs;
 	}
+	
 	
 	
 

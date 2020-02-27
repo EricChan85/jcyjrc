@@ -14,15 +14,45 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property = "details" column = "details" />
 		<result property = "startTime" column = "start_time" />
 		<result property = "endTime" column = "end_time" />
+		<result property = "status" column = "status"/>		
 		<result property = "createTime" column = "create_time" />
+		<result property = "repairDescription" column = "REPAIR_DESCRIPTION"/>
+		<result property = "repairmanId" column = "REPAIRMAN_ID"/>
+		<result property = "repairTime" column = "REPAIR_TIME"/>
+		<result property = "evaluation" column = "evaluation"/>
+		<result property = "evaluationTime" column = "EVALUATION_TIME"/>
 	</resultMap>
 	
 	<insert id="insertRepair" parameterType="org.yjrc.domain.Repair">
-		INSERT INTO Repair(person_id, address, phone, details, start_time, end_time, create_time) 
-		VALUES (#{personId}, #{address}, #{phone}, #{details}, #{startTime}, #{endTime}, #{createTime});
+		INSERT INTO Repair(person_id, address, phone, details, start_time, end_time, status, create_time) 
+		VALUES (#{personId}, #{address}, #{phone}, #{details}, #{startTime}, #{endTime}, #{status}, #{createTime});
 	</insert>
 	
 	<select id="getByPersonId" parameterType="int" resultMap="result">
-		SELECT * FROM repair WHERE person_id=#{personId};
+		SELECT * FROM repair WHERE person_id=#{personId} order by id desc;
 	</select>
+	
+	<select id="getCountByStatus" resultType="java.lang.Integer">
+		SELECT COUNT(*) FROM repair WHERE status=#{status};
+	</select>
+	
+	<select id="getByStatus" resultMap="result">
+		SELECT * FROM repair WHERE status=#{status} ORDER BY id desc LIMIT #{offset}, #{count};
+	</select>
+	
+	<select id="getById" parameterType="int" resultMap="result">
+		SELECT * FROM repair WHERE id=#{id};
+	</select>
+	
+	<insert id="updateRepairDescription" parameterType="org.yjrc.domain.Repair">
+		UPDATE Repair SET REPAIR_DESCRIPTION = #{repairDescription}, STATUS=#{status},
+							REPAIRMAN_ID=#{repairmanId}, REPAIR_TIME=#{repairTime}
+							WHERE ID=#{id};
+	</insert>
+	
+	<insert id="updateEvaluation" parameterType="org.yjrc.domain.Repair">
+		UPDATE Repair SET EVALUATION = #{evaluation}, STATUS=#{status},
+							EVALUATION_TIME=#{evaluationTime}
+							WHERE ID=#{id};
+	</insert>
 </mapper>

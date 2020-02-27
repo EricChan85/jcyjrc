@@ -11,6 +11,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.util.Assert;
 import org.yjrc.domain.Enums;
+import org.yjrc.utils.ConstantsUtils;
 
 
 @ContextConfiguration({"classpath:/spring-config.xml"})
@@ -28,14 +29,9 @@ public class EnumsServiceImplTest {
 	
 	@Test
 	public void getAllNationalityItemsTest() {
-		Map<Integer, String> items = enumsService.getAllNationalityItems();
+		Map<Integer, String> items = enumsService.getStatusItemsByKey(ConstantsUtils.getNationalityKey());
 		Assert.isTrue(items.size() == 56);
 	}
-	
-	@Test
-	public void getAllPoliticalStatusItemsTest() {
-		Map<Integer, String> items = enumsService.getAllPoliticalStatusItems();
-		Assert.isTrue(items.size() == 13);
-	}
+
 
 }
