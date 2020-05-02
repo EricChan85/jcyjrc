@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.yjrc.dao.PersonDao;
 import org.yjrc.domain.Person;
 import org.yjrc.domain.Repair;
@@ -33,6 +34,7 @@ public class PersonServiceImpl implements PersonService {
 		return this.personDao.getAllPerson();
 	}
 	
+	@Transactional
 	public void savePerson(PersonInfoModel model) {
 		Person person = modelToPerson(model);
 		this.personDao.savePerson(person);		
@@ -79,6 +81,18 @@ public class PersonServiceImpl implements PersonService {
 		}
 		List<Person> list = personDao.getPersonByRole(ROLE_USER, offset, pageSize);		
 		return new PagedResult<Person>(list, sum, pageIndex, pageSize);
+	}
+
+	@Override
+	@Transactional
+	public void createPerson(Person person) {
+		this.personDao.createPerson(person);
+		
+	}
+
+	@Override
+	public Integer getCountByNumberOfIdcard(String numberOfIdCard) {		
+		return this.personDao.getCountByNumberOfIdcard(numberOfIdCard);
 	}
 	
 	

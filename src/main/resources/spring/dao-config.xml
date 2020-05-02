@@ -32,4 +32,9 @@
 		<property name="mapperInterface" value="org.yjrc.dao.RepairDao"></property>
 		<property name="sqlSessionFactory" ref="sqlSessionFactory"></property>		
 	</bean>
+	
+	<bean id="activityDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="org.yjrc.dao.ActivityDao"></property>
+		<property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
+	</bean>
 </beans>

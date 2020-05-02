@@ -11,4 +11,11 @@ public class MyStringsTest {
 		Assert.isTrue("1990.02".contentEquals(MyStrings.dateStringToString("1990-02-02")));
 	}
 
+	
+	@Test
+	public void containsCharacterAndNumberTest() {
+		Assert.isTrue(MyStrings.containsOnlyCharacterAndNumber("xiao6_Xiao"));
+		Assert.isTrue(!MyStrings.containsOnlyCharacterAndNumber("xiaO-2019"));
+		Assert.isTrue(!MyStrings.containsOnlyCharacterAndNumber("xiaming@163"));
+	}
 }

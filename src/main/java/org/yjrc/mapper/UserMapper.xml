@@ -18,4 +18,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<update id="changePassword" parameterType="org.yjrc.domain.User">
 		UPDATE Person SET PASSWORD = #{password} WHERE ID = #{id};
 	</update>
+
+	<select id="getById" parameterType="java.lang.Integer" resultMap="user">
+		SELECT ID, NAME, PASSWORD, ROLE FROM PERSON WHERE ID = #{id};
+	</select>
+
 </mapper>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.yjrc.dao.ActivityDao">
+	<resultMap id = "result" type = "org.yjrc.domain.Activity">
+	   <result property = "id" column = "ID"/>
+	   <result property = "title" column = "TITLE"/>
+	   <result property = "sketch" column = "SKETCH"/>
+	   <result property = "detail" column = "DETAIL"/>
+	   <result property = "createTime" column = "CREATE_TIME" />
+	   <result property = "creatorId" column = "CREATOR_ID" />
+	   <result property = "status" column = "STATUS" />
+	</resultMap>
+	
+	<select id="getById" parameterType="int" resultMap="result">
+		SELECT * FROM ACTIVITY WHERE ID = #{id};
+	</select>	
+
+	<insert id="createActivity" parameterType = "org.yjrc.domain.Activity">
+		insert into Activity (TITLE, SKETCH, DETAIL, CREATE_TIME, CREATOR_ID, STATUS) values 
+				(#{title}, #{sketch}, #{detail}, #{createTime}, #{creatorId}, #{status});
+	</insert>
+
+	<select id="getCountByStatus" resultType="java.lang.Integer">
+		SELECT COUNT(*) FROM Activity WHERE STATUS=#{status};
+	</select>
+	
+	<select id="getByStatus" resultMap="result">
+		SELECT * FROM Activity WHERE STATUS=#{status} ORDER BY id desc LIMIT #{offset}, #{count};
+	</select>
+		
+	<select id="getPublished" resultMap="result">
+		SELECT * FROM Activity WHERE STATUS=#{status} ORDER BY id desc LIMIT #{count};
+	</select>
+	
+	<update id="updateActivity" parameterType = "org.yjrc.domain.Activity">
+		UPDATE ACTIVITY 
+		<set>
+			<if test="title != null">TITLE=#{title},</if>
+			<if test="sketch != null">SKETCH=#{sketch},</if>
+			<if test="detail != null">DETAIL=#{detail},</if>
+			<if test="createTime != null">CREATE_TIME=#{createTime},</if>
+			<if test="creatorId != null">CREATOR_ID=#{creatorId},</if>
+			<if test="status != null">STATUS=#{status}</if>
+		</set>
+		WHERE ID=#{id};
+	</update>
+</mapper>

@@ -5,6 +5,7 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 import org.yjrc.config.AuthenticationFacade;
 import org.yjrc.domain.User;
+import org.yjrc.utils.MyStrings;
 import org.yjrc.utils.SSPWUtils;
 
 public class PasswordModelValidator implements Validator {
@@ -24,7 +25,7 @@ public class PasswordModelValidator implements Validator {
 		User user = authenticationFacade.getLoginUser();
 		
 		PasswordModel model = (PasswordModel)target;
-		if (model.getOldPassword().isEmpty()) {
+		if (MyStrings.isEmpty( model.getOldPassword())) {
 			errors.rejectValue("oldPassword", "required.oldPassword", "旧密码不能为空！");
 		} else if (!SSPWUtils.matches(model.getOldPassword(), user.getPassword())) {
 			errors.rejectValue("oldPassword", "invalideOldPassword", "旧密码错误！");

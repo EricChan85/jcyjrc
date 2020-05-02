@@ -23,4 +23,5 @@
 	<bean id="workExperienceService" class="org.yjrc.service.WorkExperienceServiceImpl"></bean>
 	<bean id="userService" class="org.yjrc.service.UserServiceImpl"></bean>
 	<bean id="repairService" class="org.yjrc.service.RepairServiceImpl"></bean>
+	<bean id="activityService" class="org.yjrc.service.ActivityServiceImpl"></bean>
 </beans>

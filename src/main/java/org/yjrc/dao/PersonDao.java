@@ -18,4 +18,14 @@ public interface PersonDao {
 		
 	
 	void savePerson(Person person);
+	
+	/*
+	 * "新增人员，只包含姓名、用户名、密码等基本信息"
+	 */
+	void createPerson(Person person);
+	
+	/*
+	 * "用于判断身份证号是否存在"
+	 */
+	Integer getCountByNumberOfIdcard(String numberOfIdCard);
 }

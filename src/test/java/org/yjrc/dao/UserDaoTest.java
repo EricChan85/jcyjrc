@@ -1,6 +1,8 @@
 package org.yjrc.dao;
 
 
+import static org.junit.Assert.assertNotNull;
+
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -21,6 +23,12 @@ public class UserDaoTest {
 		User user = userDao.getUserByUserName("xiaoming");
 		Assert.assertNotNull(user);
 		System.out.println(user.getUserName());
+	}
+	
+	@Test
+	public void getByIdTest() {
+		User user = userDao.getById(1);
+		assertNotNull(user);
 	}
 
 }

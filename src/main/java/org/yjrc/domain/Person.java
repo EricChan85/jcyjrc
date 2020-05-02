@@ -108,7 +108,19 @@ public class Person {
 	 */
 	private String address;
 	
+	/*
+	 * 角色
+	 */
+	private String role;
 	
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
+	}
 
 	public char getGender() {
 		return gender;

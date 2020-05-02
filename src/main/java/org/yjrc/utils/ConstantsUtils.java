@@ -11,6 +11,9 @@ public class ConstantsUtils {
 	//报修状态
 	private static final String REPAIR_STATUS_KEY = "repairStatus";
 	
+	//活动状态
+	private static final String ACTIVITY_STATUS_KEY = "activityStatus";
+	
 	public static String getNationalityKey() {
 		return NATIONALITY_KEY;
 	}
@@ -21,5 +24,9 @@ public class ConstantsUtils {
 	
 	public static String getRepairStatusKey() {
 		return REPAIR_STATUS_KEY;
+	}
+	
+	public static String getActivityStatusKey() {
+		return ACTIVITY_STATUS_KEY;
 	}
 }

@@ -1,6 +1,8 @@
 package org.yjrc.dao;
 
 
+import static org.junit.Assert.assertTrue;
+
 import java.util.List;
 
 import org.junit.Assert;
@@ -64,5 +66,22 @@ public class PersonDaoImplTest {
 	public void getPersonByRoleTest() {
 		List<Person> list = personDao.getPersonByRole("ROLE_USER", 0 , 10);
 		Assert.assertFalse(list.isEmpty());
+	}
+	
+	@Test
+	public void createPersonTest() {
+		Person person = new Person();
+		person.setName("小王");
+		person.setUserName("xiaoWang");
+		person.setPassword("$2a$11$jFhURK78qYIgycjltn4Rce62z6LzUwOi9ktYnUDkLm5jfxuJQMzhS");
+		person.setNumberOfIdCard("620321198903050626");
+		person.setRole("ROLE_USER");
+		this.personDao.createPerson(person);
+	}
+	
+	@Test
+	public void getCountByNumberOfIdcardTest() {
+		Integer count = this.personDao.getCountByNumberOfIdcard("620321199003080879");
+		assertTrue(count != null && count > 0);
 	}
 }

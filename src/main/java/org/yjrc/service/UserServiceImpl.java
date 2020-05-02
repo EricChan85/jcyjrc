@@ -1,6 +1,7 @@
 package org.yjrc.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 import org.yjrc.config.AuthenticationFacade;
 import org.yjrc.dao.UserDao;
 import org.yjrc.domain.User;
@@ -16,6 +17,7 @@ public class UserServiceImpl implements UserService {
 	private AuthenticationFacade authenticationFacade;
 	
 	@Override
+	@Transactional
 	public void changePassword(PasswordModel model) {
 				
 		User user = authenticationFacade.getLoginUser();
@@ -23,6 +25,22 @@ public class UserServiceImpl implements UserService {
 		myUser.setId(user.getId());
 		myUser.setPassword(SSPWUtils.encode(model.getNewPassword()));
 		userDao.changePassword(myUser);		
+	}
+
+	@Override
+	public User getUserByUserName(String userName) {
+		return this.userDao.getUserByUserName(userName);
+	}
+
+	@Override
+	public void resetPassword(User user) {		 
+		user.setPassword(SSPWUtils.getEncodedInitialPassword());
+		userDao.changePassword(user);	
+	}
+
+	@Override
+	public User getById(Integer id) {
+		return this.userDao.getById(id);
 	}
 
 }

@@ -1,7 +1,7 @@
 DROP TABLE IF EXISTS yjrc.person;
 CREATE TABLE yjrc.person(
    ID int(10) NOT NULL AUTO_INCREMENT,  
-   USERNAME varchar(45) NOT NULL,
+   USERNAME varchar(30) NOT NULL,
    PASSWORD varchar(60) NOT NULL,
     name nvarchar(30) DEFAULT NULL ,
     gender nvarchar(5) DEFAULT NULL ,
@@ -197,6 +197,10 @@ INSERT INTO yjrc.enums (enum_type, enum_name, enum_value) values
 ("repairStatus","已处理",2),
 ("repairStatus","已评价",3);
 
+INSERT INTO yjrc.enums (enum_type, enum_name, enum_value) values 
+("activityStatus","已发布",1),
+("activityStatus","未发布",2);
+
 DROP TABLE IF EXISTS yjrc.education_experiences;
 CREATE TABLE yjrc.education_experiences(
    ID int(10) NOT NULL AUTO_INCREMENT,  
@@ -232,6 +236,18 @@ CREATE TABLE yjrc.repair(
    REPAIR_TIME DATETIME DEFAULT NULL,  
    EVALUATION NVARCHAR(300) DEFAULT NULL,
    EVALUATION_TIME DATETIME DEFAULT NULL,
+   STATUS INT(10) NOT NULL,
+   PRIMARY KEY ( ID )
+);
+
+DROP TABLE IF EXISTS yjrc.activity;
+CREATE TABLE yjrc.activity(
+   ID int(10) NOT NULL AUTO_INCREMENT,  
+   TITLE NVARCHAR(200) NOT NULL,
+   SKETCH NVARCHAR(1000) NOT NULL,
+   DETAIL TEXT NOT NULL,
+   CREATE_TIME DATETIME NOT NULL,   
+   CREATOR_ID INT(10) DEFAULT NULL,   
    STATUS INT(10) NOT NULL,
    PRIMARY KEY ( ID )
 );

@@ -58,4 +58,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="getPersonByRole" resultMap="result">
 		SELECT * FROM person WHERE role=#{role} ORDER BY id LIMIT #{offset}, #{count};
 	</select>
+	
+	<select id="createPerson" parameterType = "org.yjrc.domain.Person">
+		insert into person (name, username, password, number_of_id_card, role) values 
+				(#{name}, #{userName}, #{password}, #{numberOfIdCard}, #{role});
+	</select>
+	
+	<select id="getCountByNumberOfIdcard" resultType="java.lang.Integer" parameterType = "java.lang.String">
+		SELECT COUNT(*) FROM person WHERE number_of_id_card=#{numberOfIdCard};
+	</select>
 </mapper> 

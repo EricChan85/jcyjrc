@@ -12,6 +12,8 @@ public class SSPWUtils {
 	
 	static BCryptPasswordEncoder encoder = new BCryptPasswordEncoder(11);
 	
+	private static final String INITIAL_PASSWORD = "123456";
+	
 	public static boolean  tt(String rawPassword) {
 		
 		String password = /*"$2a$11$RbbWgbFw7yfB3jpAtIW8WedsVeoMoEAEL9TVY28uKtJUGAv8PvVmK";*/ encoder.encode(rawPassword);
@@ -26,5 +28,9 @@ public class SSPWUtils {
 	
 	public static boolean matches(String raw, String encoded) {
 		return encoder.matches(raw, encoded);		
+	}
+	
+	public static String getEncodedInitialPassword() {
+		return encoder.encode(INITIAL_PASSWORD);
 	}
 }

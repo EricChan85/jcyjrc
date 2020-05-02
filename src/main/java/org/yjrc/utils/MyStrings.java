@@ -14,4 +14,22 @@ public class MyStrings {
 	
 		return dateString;
 	}
+	
+	/*
+	 * 检查字符串是否为空
+	 */
+	public static boolean isEmpty(String str) {
+		if(str == null || str.isEmpty() || str.trim().isEmpty()) {
+			return true;
+		} 
+		return false;
+	}
+	
+	/*
+	 * "验证只包含字母和数字"
+	 */
+	public static boolean containsOnlyCharacterAndNumber(String str) {
+		String pattern = "^[a-zA-Z0-9_]+$";
+		return str.matches(pattern);
+	}
 }
