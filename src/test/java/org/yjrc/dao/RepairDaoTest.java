@@ -93,4 +93,6 @@ public class RepairDaoTest {
 		assertEquals(repair.getEvaluation(), evaluation);
 		assertEquals(repair.getStatus(), status);
 	}
+	
+	
 }

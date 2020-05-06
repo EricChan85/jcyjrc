@@ -26,6 +26,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	   <result property = "position" column = "position"/>   
 	   <result property = "professionalTechnicalPosition" column = "professional_technical_position" />
 	   <result property = "address" column = "address"/>
+	   <result property = "profile" column = "profile" />
 	</resultMap>
 	
 	<select id="getPersonById" parameterType="int" resultMap="result">
@@ -66,5 +67,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<select id="getCountByNumberOfIdcard" resultType="java.lang.Integer" parameterType = "java.lang.String">
 		SELECT COUNT(*) FROM person WHERE number_of_id_card=#{numberOfIdCard};
+	</select>
+	
+	<update id="saveProfile" parameterType = "org.yjrc.domain.Person">
+		UPDATE person SET PROFILE = #{profile} WHERE ID = #{id};
+	</update>
+	
+	<select id="get3RandPersonWithProfile" resultMap="result">
+		SELECT * FROM person where PROFILE IS NOT NULL ORDER BY RAND() LIMIT 3;
 	</select>
 </mapper> 

@@ -113,6 +113,19 @@ public class Person {
 	 */
 	private String role;
 	
+	/*
+	 * "人才简介"
+	 */
+	private String profile;
+	
+
+	public String getProfile() {
+		return profile;
+	}
+
+	public void setProfile(String profile) {
+		this.profile = profile;
+	}
 
 	public String getRole() {
 		return role;

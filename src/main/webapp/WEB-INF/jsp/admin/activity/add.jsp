@@ -5,7 +5,7 @@
 <%@ include file="../../layout/admin/header.jsp" %>
 
 <c:url var="staticPath" value="/static/"></c:url>
-<<script type="text/javascript">
+<script type="text/javascript">
 <!--
 var staticPath = "${staticPath}";
 //-->

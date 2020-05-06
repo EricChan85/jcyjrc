@@ -94,6 +94,16 @@ public class PersonServiceImpl implements PersonService {
 	public Integer getCountByNumberOfIdcard(String numberOfIdCard) {		
 		return this.personDao.getCountByNumberOfIdcard(numberOfIdCard);
 	}
+
+	@Override
+	public void saveProfile(Person person) {
+		this.personDao.saveProfile(person);		
+	}
+
+	@Override
+	public List<Person> get3RandPersonWithProfile() {		
+		return this.personDao.get3RandPersonWithProfile();
+	}
 	
 	
 }

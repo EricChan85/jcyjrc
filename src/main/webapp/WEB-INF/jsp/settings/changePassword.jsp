@@ -22,6 +22,9 @@
 		          <a class="nav-link" href="#">获奖情况</a>
 		        </li>
 		        <li class="nav-item">
+		          <a class="nav-link" href="profile">人才简介</a>
+		        </li>
+		        <li class="nav-item">
 		          <a class="nav-link active" href="changePassword">修改密码</a>
 		        </li>
 		      </ul>

@@ -9,8 +9,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import org.yjrc.domain.Person;
 import org.yjrc.models.ActivityModel;
 import org.yjrc.service.ActivityService;
+import org.yjrc.service.PersonService;
 
 @Controller
 @RequestMapping
@@ -19,6 +21,9 @@ public class GreetingController {
 	@Autowired
 	private ActivityService activityService;
 	
+	@Autowired
+	private PersonService personService;
+	
 	@RequestMapping(value = "/welcome", method = RequestMethod.GET)
 	/*@ResponseBody*/
 	public ModelAndView showWelcome(HttpServletRequest request) {
@@ -26,6 +31,8 @@ public class GreetingController {
 		
 		List<ActivityModel> list = this.activityService.getTop3Published();
 		model.addObject("activityList", list);
+		List<Person> personList = this.personService.get3RandPersonWithProfile();
+		model.addObject("personWithProfile", personList);
 		model.setViewName("welcome");
 		return model;		
 	}

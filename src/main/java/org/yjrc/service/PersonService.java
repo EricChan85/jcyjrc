@@ -25,4 +25,14 @@ public interface PersonService {
 	 * "用于判断身份证号是否存在"
 	 */
 	Integer getCountByNumberOfIdcard(String numberOfIdCard);
+	
+	/*
+	 * "保存个人简介"
+	 */
+	void saveProfile(Person person);
+	
+	/*
+	 * "随机获取3个个人简介"
+	 */
+	List<Person> get3RandPersonWithProfile();
 }

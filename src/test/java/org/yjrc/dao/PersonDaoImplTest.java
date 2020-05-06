@@ -84,4 +84,10 @@ public class PersonDaoImplTest {
 		Integer count = this.personDao.getCountByNumberOfIdcard("620321199003080879");
 		assertTrue(count != null && count > 0);
 	}
+	
+	@Test
+	public void get3RandPersonWithProfileTest() {
+		List<Person> list = this.personDao.get3RandPersonWithProfile();
+		assertTrue(list.size() == 1);
+	}
 }

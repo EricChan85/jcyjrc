@@ -1,25 +1,37 @@
 package org.yjrc.controllers;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.servlet.ModelAndView;
 import org.yjrc.config.AuthenticationFacade;
 import org.yjrc.domain.EducationExperiences;
 import org.yjrc.domain.Person;
+import org.yjrc.domain.Repair;
 import org.yjrc.domain.User;
 import org.yjrc.domain.WorkExperience;
+import org.yjrc.enums.RepairStatus;
+import org.yjrc.models.ActivityModel;
 import org.yjrc.models.EducationExperienceModel;
+import org.yjrc.models.PasswordModel;
 import org.yjrc.models.PersonInfoModel;
 import org.yjrc.models.WorkExperienceModel;
 import org.yjrc.service.EducationExperiencesService;
@@ -235,5 +247,34 @@ public class SettingsController {
 			
 		}
 		return list;
+	}
+	
+	/*
+	 * "人才简介"
+	 */
+	@RequestMapping(value="/profile", method = RequestMethod.GET)
+	public ModelAndView addProfile(@RequestParam(name="success", required = false) Integer success) {		
+				
+		ModelAndView mav = new ModelAndView();		
+		User user = authenticationFacade.getLoginUser();
+		Person person = this.personService.getPersonById(user.getId());
+		mav.addObject("profile", person.getProfile());
+		return mav;
+	}
+
+	/*
+	 * "保存人才简介"
+	 */
+	@RequestMapping(value="/saveProfile", method=RequestMethod.POST)
+	public @ResponseBody String saveProfile(
+								@RequestParam("profile") String profile) {
+		User user = authenticationFacade.getLoginUser();
+		Person person = this.personService.getPersonById(user.getId());
+		if (person == null) {
+			return "error";
+		}
+		person.setProfile(profile);
+		this.personService.saveProfile(person);
+		return "success";
 	}
 }

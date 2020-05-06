@@ -1,8 +1,8 @@
 DROP TABLE IF EXISTS yjrc.person;
 CREATE TABLE yjrc.person(
-   ID int(10) NOT NULL AUTO_INCREMENT,  
-   USERNAME varchar(30) NOT NULL,
-   PASSWORD varchar(60) NOT NULL,
+	ID int(10) NOT NULL AUTO_INCREMENT,  
+	USERNAME varchar(30) NOT NULL,
+	PASSWORD varchar(60) NOT NULL,
     name nvarchar(30) DEFAULT NULL ,
     gender nvarchar(5) DEFAULT NULL ,
     date_of_birth DATE DEFAULT NULL ,
@@ -26,6 +26,7 @@ CREATE TABLE yjrc.person(
     work_experience nvarchar(1000) DEFAULT NULL ,
     honors nvarchar(1000) DEFAULT NULL ,
     skills_and_interests nvarchar(1000) DEFAULT NULL ,
+	PROFILE nvarchar(200) NOT NULL,
    ROLE varchar(45) NOT NULL,
    PRIMARY KEY ( ID )
 );
